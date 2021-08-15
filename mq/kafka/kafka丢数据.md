@@ -15,10 +15,10 @@ kafka无法保证broker百分百不丢失数据。减少刷盘间隔，减少刷
 写入mq的数据会先放到一个内存buffer中，之后异步发送。
 如果这个时候producer挂掉，那么内存buffer的消息就会丢失
 
-producer发送给broker时，如何知道发送成功了，有一个比较关键的参数就是ack
-ack=0时，无需等待leader broker返回ack即认为成功。
-ack=1时，leader broker返回ack即可认为成功。
-ack=-1时，需要leader broker收到所有位于isr队列中的slave返回ack，才认为成功。
+producer发送给broker时，如何知道发送成功了，有一个比较关键的参数就是 requireAcks
+requireAcks=0时，无需等待leader broker返回ack即认为成功。
+requireAcks=1时，leader broker返回ack即可认为成功。
+requireAcks=-1时，需要leader broker收到所有位于isr队列中的slave返回ack，才认为成功。
 
 ## consumer
 consumer如果配置为自动commit，消费失败时可能会丢失消息。

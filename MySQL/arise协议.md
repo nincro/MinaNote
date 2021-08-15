@@ -14,3 +14,4 @@ steal的意思，是说允许一个还未提交的事务所写的脏页先刷入
 如果no steal，那么磁盘中就不会出现未commit的脏数据，也就不需要undo了。
 
 ## lsn
+log sequence number,每一条日志都会有全局唯一的lsn数字。
